@@ -23,5 +23,5 @@ dist-ssr
 *.sln
 *.sw?
 
-modeles
+modeles/
 .gltf
