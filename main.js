@@ -1,6 +1,7 @@
 import "./style.css";
 
 import * as THREE from "three";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { PointerLockControls } from "three/examples/jsm/controls/PointerLockControls";
 // console.log(THREE);
 
@@ -27,7 +28,7 @@ function init() {
     0.1,
     1000
   );
-  camera.position.set(0, 5, 2); //カメラの位置を指定
+  camera.position.set(0, 50, 2); //カメラの位置を指定
 
   // ライト
   const light = new THREE.HemisphereLight(0xeeeeff, 0x777788, 0.75);
@@ -37,14 +38,19 @@ function init() {
   // fps設定
 
   // オブジェクト
-  const planeGeometry = new THREE.PlaneGeometry(400, 400, 100, 100);
-  const material = new THREE.MeshBasicMaterial({
+
+  // 平面
+  const planeGeometry = new THREE.PlaneGeometry(400, 400, 1, 1);
+  const material = new THREE.MeshLambertMaterial({
     color: "orange",
-    wireframe: true,
   });
   const plane = new THREE.Mesh(planeGeometry, material);
   plane.rotateX(-Math.PI / 2);
   scene.add(plane);
+
+  // 3dmodel
+  const loader = new GLTFLoader();
+  loader.load("");
 
   // キーボード操作
 
